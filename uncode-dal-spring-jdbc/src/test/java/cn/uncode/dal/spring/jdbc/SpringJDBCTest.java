@@ -28,7 +28,7 @@ public class SpringJDBCTest {
         queryCriteria.setTable(User.class);
         Criteria critera = queryCriteria.createCriteria();
         critera.andColumnGreaterThan(User.ID, 1);
-        critera.andColumnLessThanOrEqualTo(User.ID, 10000);
+//        critera.andColumnLessThanOrEqualTo(User.ID, 10000);
         QueryResult result =  baseDAL.selectByCriteria(queryCriteria);
         System.out.println(result.getList());
     }
@@ -61,6 +61,9 @@ public class SpringJDBCTest {
     public void testInsert1(){
         User user = new User();
         user.setUserName("test001236501");
+        user.setEmail("abcdefg@1234.com");
+        user.setPwd("1234565");
+        user.setUserStatus(1);
         Object result = baseDAL.insert(user);
         System.out.println(result);
     }
